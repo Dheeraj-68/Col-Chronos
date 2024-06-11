@@ -1,0 +1,38 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Timetable Scheduler</title>
+    <link rel="stylesheet" href="{% static 'form.css' %}">
+    <link rel="icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+    <style>
+      body{
+        background-color: #F2D4D6;
+      }
+      </style>
+  </head>
+  <body>
+    <img class="image" src="{% static 'LOGO.png' %}">
+    <form action="Login" method="post">
+      {%csrf_token%}
+      <h2>Login</h2>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter username">
+      <br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter password">
+      <br>
+      
+      <div class="alert alert-primary">
+        {% for message in messages %}
+        {{message}}
+        {%endfor%}
+      </div>
+      <button type="submit" >Login</button>
+      <button type="reset">Reset</button>
+      <br>
+    </form>
+    
+  </body>
+</html>

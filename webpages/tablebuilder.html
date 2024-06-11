@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table Builder</title>
+	<style>
+			body{
+			  background-color: #F2D4D6;
+			}
+		table {
+			border-collapse: collapse;
+			width: 80%;
+			border-radius: 5%;
+		}
+		td {
+			border: 1px solid black;
+			padding: 8px;
+			text-align: center;
+			background-color: #F2D4D6;
+		}
+		th {
+			border: 1px solid black;
+			padding: 8px;
+			text-align: center;
+			color: navy;
+			font-family: 'Courier New', Courier, monospace;
+			background-color: #F2D4D6;
+		}
+		td.selected {
+			background-color: #213F99;
+			color: azure;
+		}
+	</style>
+</head>
+<body>
+	{{alert}}
+	<h1>Select a Subject:</h1>
+	<select id="subject-select">
+		{% for sub in subs %}
+		<option value="{{ sub }}">{{ sub }}</option>
+		{% endfor %}
+	</select>
+	<button id="add-subject-btn">Add Subject</button>
+	<button id="undo-btn">Undo</button>
+
+	<h1>Table:</h1>
+	<table id="timetable">
+		<thead>
+			<tr>
+				<th>Day</th>
+				<th>S1</th>
+				<th>S2</th>
+				<th>S3</th>
+				<th>S4</th>
+				<th>S5</th>
+				<th>S6</th>
+				<th>S7</th>
+				<th>S8</th>
+				<th>S9</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>Monday</th>
+				<td id="mon-s1"></td>
+				<td id="mon-s2"></td>
+				<td id="mon-s3"></td>
+				<td id="mon-s4"></td>
+				<td id="mon-s5"></td>
+				<td id="mon-s6"></td>
+				<td id="mon-s7"></td>
+				<td id="mon-s8"></td>
+				<td id="mon-s9"></td>
+			</tr>
+			<tr>
+				<th>Tuesday</th>
+				<td id="tue-s1"></td>
+				<td id="tue-s2"></td>
+				<td id="tue-s3"></td>
+				<td id="tue-s4"></td>
+				<td id="tue-s5"></td>
+				<td id="tue-s6"></td>
+				<td id="tue-s7"></td>
+				<td id="tue-s8"></td>
+				<td id="tue-s9"></td>
+			</tr>
+            <tr>
+				<th>Wednesday</th>
+				<td id="wed-s1"></td>
+				<td id="wed-s2"></td>
+				<td id="wed-s3"></td>
+				<td id="wed-s4"></td>
+				<td id="wed-s5"></td>
+				<td id="wed-s6"></td>
+				<td id="wed-s7"></td>
+				<td id="wed-s8"></td>
+				<td id="wed-s9"></td>
+			</tr>
+            <tr>
+				<th>Thursday</th>
+				<td id="thrs-s1"></td>
+				<td id="thrs-s2"></td>
+				<td id="thrs-s3"></td>
+				<td id="thrs-s4"></td>
+				<td id="thrs-s5"></td>
+				<td id="thrs-s6"></td>
+				<td id="thrs-s7"></td>
+				<td id="thrs-s8"></td>
+				<td id="thrs-s9"></td>
+			</tr>
+            <tr>
+				<th>Friday</th>
+				<td id="fri-s1"></td>
+				<td id="fri-s2"></td>
+				<td id="fri-s3"></td>
+				<td id="fri-s4"></td>
+				<td id="fri-s5"></td>
+				<td id="fri-s6"></td>
+				<td id="fri-s7"></td>
+				<td id="fri-s8"></td>
+				<td id="fri-s9"></td>
+			</tr>
+            <tr>
+				<th>Saturday</th>
+				<td id="sat-s1"></td>
+				<td id="sat-s2"></td>
+				<td id="sat-s3"></td>
+				<td id="sat-s4"></td>
+				<td id="sat-s5"></td>
+				<td id="sat-s6"></td>
+				<td id="sat-s7"></td>
+				<td id="sat-s8"></td>
+				<td id="sat-s9"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- <script>
+		let selectedCell = null;
+		const cells = document.querySelectorAll('td');
+
+		// Add click event listener to each table cell
+		cells.forEach(cell => {
+			cell.addEventListener('click', () => {
+				// Remove previous selection
+				if (selectedCell !== null) {
+					selectedCell.classList.remove('selected');
+				}
+				// Set new selection
+				cell.classList.add('selected');
+				selectedCell = cell;
+			});
+		});
+
+		// Add click event listener to add button
+		const addBtn = document.getElementById('add-subject-btn');
+		addBtn.addEventListener('click', () => {
+			// Check if a cell is selected
+			if (selectedCell !== null) {
+				// Get selected subject
+				var textincell = selectedCell.innerText;
+				const subject = document.getElementById('subject-select').value;
+				// Set selected cell with the subject
+				if (textincell === "") {
+					selectedCell.innerText = subject;
+				  } else {
+					selectedCell.innerText = textincell + " + " + subject;
+				  }
+			}
+		});
+	</script> -->
+
+	<script>
+		let selectedCell = null;
+		let prevCellText = null;
+		const cells = document.querySelectorAll('td');
+	
+		// Add click event listener to each table cell
+		cells.forEach(cell => {
+			cell.addEventListener('click', () => {
+				// Remove previous selection
+				if (selectedCell !== null) {
+					selectedCell.classList.remove('selected');
+				}
+				// Set new selection
+				cell.classList.add('selected');
+				selectedCell = cell;
+			});
+		});
+	
+		// Add click event listener to add button
+		const addBtn = document.getElementById('add-subject-btn');
+		addBtn.addEventListener('click', () => {
+			// Check if a cell is selected
+			if (selectedCell !== null) {
+				// Get selected subject
+				prevCellText = selectedCell.innerText;
+				const subject = document.getElementById('subject-select').value;
+				// Set selected cell with the subject
+				if (prevCellText === "") {
+					selectedCell.innerText = subject;
+				  } else {
+					selectedCell.innerText = prevCellText + " + " + subject;
+				  }
+			}
+		});
+	
+		// Add click event listener to undo button
+		const undoBtn = document.getElementById('undo-btn');
+		undoBtn.addEventListener('click', () => {
+			// Check if there was a previous action
+			if (prevCellText !== null) {
+				// Set selected cell back to previous text
+				selectedCell.innerText = prevCellText;
+				prevCellText = null;
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+/* Center the login form on the page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Style the login form */
+  form {
+    width: 400px;
+    padding: 40px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+  }
+  
+  /* Style the input fields and buttons */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  button[type=submit], button[type=reset] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type=submit]:hover, button[type=reset]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Style the "Forgot Password" link */
+  a {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .image {
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    width: 10%;
+    height: auto;
+}
+
+
+.alert {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.alert-primary {
+  color: #004085;
+  background-color: #f2f2f2;
+  border-color: #f2f2f2;
+}

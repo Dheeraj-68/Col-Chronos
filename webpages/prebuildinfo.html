@@ -1,0 +1,45 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timetable Scheduler</title>
+    <link rel="stylesheet" href="{% static 'subinfo.css' %}">
+    <link rel="icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+	<style>
+		body{
+		  background-color: #F2D4D6;
+		}
+	  </style>
+</head>
+<body> 
+	<h2>Enter Subject, Faculty, and Room Details</h2>
+	<form method="POST" action="tablebuilder">
+		{% csrf_token %}
+		<table>
+			<thead>
+				<tr>
+					<th>Subject Code</th>
+					<th>Faculty ID 1</th>
+					<th>Faculty ID 2</th>
+					<th>Faculty ID 3</th>
+					<th>Room</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in subs %}
+				<tr>
+					<td><input type="text" name="sub_code_{{i}}"></td>
+					<td><input type="text" name="fac_1_{{i}}"></td>
+					<td><input type="text" name="fac_2_{{i}}"></td>
+					<td><input type="text" name="fac_3_{{i}}"></td>
+					<td><input type="text" name="room_{{i}}"></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<br>
+		<input type="submit" value="Save">
+	</form>
+
+</body>
+</html>

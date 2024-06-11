@@ -1,0 +1,48 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timetable Scheduler</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'form.css' %}">
+    <link rel="icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+    <style>
+      body{
+        background-color: #F2D4D6;
+      }
+      </style>
+</head>
+<body>
+	<img class="image" src="{% static 'LOGO.png' %}">
+    <form action="prebuildinfo" method="post">
+        {%csrf_token%}
+        <h2>Batch Info</h2>
+        <label for="batch">Batch:</label>
+        <input type="text" id="batch" name="batch" placeholder="example - 2020 Batch">
+        <br>
+        <label for="school">School:</label>
+        <input type="text" id="school" name="school" placeholder="example - SOET">
+        <br>
+        <label for="division">Section/Specialisation:</label>
+        <input type="text" id="division" name="division" placeholder="example - CSE2 or CYBER SECURITY">
+        <br>
+        <label for="semester">Semester:</label>
+        <input type="text" id="semester" name="semester" placeholder="example - VI">
+        <br>
+        <label for="nsubs">No. of Subjects:</label>
+        <input type="number" id="nsubs" name="nsubs" placeholder="example - 10">
+        <br>
+        
+        <div class="alert alert-primary">
+          {% for message in messages %}
+          {{message}}
+          {%endfor%}
+        </div>
+        <button type="submit" >Next</button>
+        <button type="reset">Reset</button>
+        <a class="button" href="homepage">Return to Home</a>
+        <br>
+      </form>
+</body>
+</html>

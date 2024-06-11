@@ -1,0 +1,91 @@
+<h1>Table:</h1>
+	<table id="timetable">
+		<thead>
+			<tr>
+				<th>Day</th>
+				<th>S1</th>
+				<th>S2</th>
+				<th>S3</th>
+				<th>S4</th>
+				<th>S5</th>
+				<th>S6</th>
+				<th>S7</th>
+				<th>S8</th>
+				<th>S9</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Monday</td>
+				<td id="mon-s1"></td>
+				<td id="mon-s2"></td>
+				<td id="mon-s3"></td>
+				<td id="mon-s4"></td>
+				<td id="mon-s5"></td>
+				<td id="mon-s6"></td>
+				<td id="mon-s7"></td>
+				<td id="mon-s8"></td>
+				<td id="mon-s9"></td>
+			</tr>
+			<tr>
+				<td>Tuesday</td>
+				<td id="tue-s1"></td>
+				<td id="tue-s2"></td>
+				<td id="tue-s3"></td>
+				<td id="tue-s4"></td>
+				<td id="tue-s5"></td>
+				<td id="tue-s6"></td>
+				<td id="tue-s7"></td>
+				<td id="tue-s8"></td>
+				<td id="tue-s9"></td>
+			</tr>
+            <tr>
+				<td>Wednesday</td>
+				<td id="wed-s1"></td>
+				<td id="wed-s2"></td>
+				<td id="wed-s3"></td>
+				<td id="wed-s4"></td>
+				<td id="wed-s5"></td>
+				<td id="wed-s6"></td>
+				<td id="wed-s7"></td>
+				<td id="wed-s8"></td>
+				<td id="wed-s9"></td>
+			</tr>
+            <tr>
+				<td>Thursday</td>
+				<td id="thrs-s1"></td>
+				<td id="thrs-s2"></td>
+				<td id="thrs-s3"></td>
+				<td id="thrs-s4"></td>
+				<td id="thrs-s5"></td>
+				<td id="thrs-s6"></td>
+				<td id="thrs-s7"></td>
+				<td id="thrs-s8"></td>
+				<td id="thrs-s9"></td>
+			</tr>
+            <tr>
+				<td>Friday</td>
+				<td id="fri-s1"></td>
+				<td id="fri-s2"></td>
+				<td id="fri-s3"></td>
+				<td id="fri-s4"></td>
+				<td id="fri-s5"></td>
+				<td id="fri-s6"></td>
+				<td id="fri-s7"></td>
+				<td id="fri-s8"></td>
+				<td id="fri-s9"></td>
+			</tr>
+            <tr>
+				<td>Saturday</td>
+				<td id="sat-s1"></td>
+				<td id="sat-s2"></td>
+				<td id="sat-s3"></td>
+				<td id="sat-s4"></td>
+				<td id="sat-s5"></td>
+				<td id="sat-s6"></td>
+				<td id="sat-s7"></td>
+				<td id="sat-s8"></td>
+				<td id="sat-s9"></td>
+			</tr>
+		</tbody>
+	</table>

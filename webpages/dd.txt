@@ -1,0 +1,72 @@
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>Table Builder</title>
+	<style>
+		/* CSS for table selection */
+		.table td {
+			border: 1px solid black;
+			padding: 5px;
+			cursor: pointer;
+		}
+		.table td.selected {
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<h1>Table Builder</h1>
+	<form method="POST">
+		{% csrf_token %}
+		<label for="subject_select">Select a subject:</label>
+		<select name="subject_select" id="subject_select">
+			{% for sub in subs %}
+			<option value="{{ sub }}">{{ sub }}</option>
+			{% endfor %}
+		</select>
+		<button type="button" id="add_button">Add Subject</button>
+	</form>
+	
+	<!-- Table goes here -->
+	<!-- Add the table with two rows for Monday and Tuesday, and 10 columns for S1 to S9 -->
+	<!-- Each cell should have the class "table" -->
+	<!-- Add an id to each cell to identify it later (e.g. "cell_Monday_S1") -->
+	
+	<script>
+		// Javascript for table selection
+		const cells = document.querySelectorAll('.table td');
+		let selectedCell = null;
+		
+		cells.forEach(cell => {
+			cell.addEventListener('click', () => {
+				if (selectedCell) {
+					selectedCell.classList.remove('selected');
+				}
+				selectedCell = cell;
+				selectedCell.classList.add('selected');
+			});
+		});
+		
+		// Javascript for adding subject to selected cell
+		const addButton = document.getElementById('add_button');
+		addButton.addEventListener('click', () => {
+			if (selectedCell) {
+				const subjectSelect = document.getElementById('subject_select');
+				const subject = subjectSelect.value;
+				const currentContent = selectedCell.textContent;
+				if (currentContent.trim() === '') {
+					selectedCell.textContent = subject;
+				} else {
+					selectedCell.textContent = `${currentContent.trim()} + ${subject}`;
+				}
+			} else {
+				alert('Please select a cell first!');
+			}
+		});
+	</script>
+</body>
+</html>
+
+
+
+Cavern Pink (#E1B0AC), light pink (#F2D4D6), navy blue (#213F99)

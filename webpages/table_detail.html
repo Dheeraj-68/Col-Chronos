@@ -1,0 +1,49 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timetable Scheduler</title>
+    <link rel="stylesheet" href="{% static 'tables.css' %}">
+    <link rel="icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+    <style>
+      body{
+        background-color: #F2D4D6;
+      }
+      </style>
+</head>
+<body>
+    <h1>{{ table_name }}</h1>
+
+    <table>
+      <thead>
+        <tr>
+          {% for column_name in column_names %}
+            <th>{{ column_name }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+          <tr>
+            {% for value in row %}
+              <td>{{ value }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+
+	<a type="button" href="/viewinfo">Back</a>
+
+    
+
+      <!-- Add form fields here to allow the user to add or drop rows -->
+
+      
+
+
+
+
+</body>
+</html>

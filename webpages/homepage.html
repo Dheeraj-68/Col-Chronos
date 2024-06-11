@@ -1,0 +1,28 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timetable Scheduler</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="icon" href="{% static 'favicon.png' %}" type="image/x-icon">
+	<style>
+		body{
+		  background-color: #F2D4D6;
+		}
+	  </style>
+</head>
+<body>
+	<img class="image" src="{% static 'LOGO.png' %}">
+	<div class="button-container">
+		<h2>Hello {{user.username}} !</h2>
+		<a class="button" href="viewinfo">View Stored Info</a>
+		<a class="button" href="createtable">Create Timetable</a>
+	</div>
+	<a class="button" href="Logout">Logout</a>
+	Last logged in at:
+    <script>
+        document.write(Date());
+    </script>
+</body>
+</html>
